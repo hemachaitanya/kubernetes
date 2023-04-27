@@ -1,0 +1,2 @@
+# kubernetes
+practies pods
