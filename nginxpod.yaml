@@ -2,10 +2,28 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx
+  name: alphine
 spec:
   containers:
-  - name: nginx
-    image: nginx
+  - name: alphine
+    image: alphine
     ports:
     - containerPort: 80
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: httpd
+spec:
+  containers:
+    - name: httpd
+      image: httpd
+      ports:
+        - containerPort: 80
+    - name: alpine
+      image: alpine
+      args:
+        - sleep
+        - 10s
+---
