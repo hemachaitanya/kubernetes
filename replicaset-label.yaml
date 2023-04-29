@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicaset1
+spec:
+  minReadySeconds: 2s
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+    template:
+      metadata:
+        name: createpod
+        labels:
+          app: nginx
+        spec:
+          containers:
+            - name: container
+              image: nginx
+              ports:
+                - containerPort: 80
+
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: setpods
+spec:
+  minReadySeconds: 3s
+  replicas: 5
+  selector: 
+    matchLabels: 
+      app: jenkins-nginx
+    template:
+      metadata:
+        name: jenkins-httpd
+        labels:
+          app: jenkins-httpd
+        spec:
+          activeDeadlineSeconds: 2s
+          containers: 
+            - name: httpd
+              image: httpd
+              ports:
+                - containerPort: 80
+                  hostPort: 80
+                  protocol: "TCP"
+            - name: jenkins
+              image: jenkins/jenkins:jdk11
+              ports:
+                - containerPort: 8080
+                  hostPort: 8080
+                  protocol: "TCP"
+            - name: alpine
+              image: alpine
+              args:
+                - sleep
+                - 20s
+                
