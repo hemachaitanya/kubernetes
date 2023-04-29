@@ -1,0 +1,46 @@
+
+
+
+#####  write build one job ### using yaml##
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: cronsheduller
+spec:
+  template:
+    metadata:
+      name: sheduller
+    spec:
+      containers:
+        - name: alpine
+          image: alpine
+          command:
+            - sleep
+            - 10s
+## write tobuild pods by using cronjob####
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cronjob
+spec:
+  schedule: '* * * * *'
+  jobTemplate:
+    metadata:
+      name: job
+    spec: 
+      activeDeadlineSeconds: 3s
+      template:
+        metadata:
+          name: pod
+        spec:
+          containers:
+            - name: application
+              image: alpine
+              command:
+                - sleep
+                - 10s
+
+
+

@@ -8,7 +8,7 @@ spec:
   - name: alphine
     image: alphine
     ports:
-    - containerPort: 80
+      - containerPort: 80
 
 ---
 apiVersion: v1
