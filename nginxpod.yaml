@@ -1,3 +1,4 @@
+## simple pod creation with single container ##
 ---
 apiVersion: v1
 kind: Pod
@@ -9,6 +10,7 @@ spec:
     image: alphine
     ports:
       - containerPort: 80
+## simple pod creation with two containers ##
 
 ---
 apiVersion: v1
@@ -26,6 +28,9 @@ spec:
       args:
         - sleep
         - 10s
+        
+ ## simple pod creation with two  containers run in two different ports ##
+
 ---
 apiVersion: v1
 kind: Pod
@@ -41,6 +46,8 @@ spec:
       image: httpd
       ports:
         containerPort: 80
+
+ ## simple pod creation with two  same  image containers run with crash loop backoff  ##
 
 ---
 apiVersion: v1
