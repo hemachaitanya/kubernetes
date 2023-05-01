@@ -185,7 +185,59 @@ SCALLING: scallings are three types
  ![image](./Images/12.png) 
 
  deployment: deployment depends on two objects
-    1) roolout: goto latest version
+    1) roolout: goto latest version(kubectl roolout --help)
+        a) deployment
+        b) deamon sets
+        c) stateful sets
+                in statefull applications store data locally . in containers the data  created locally will be lost once you delete it . so to solve this is docker we have used volumes , volumes have a lifecycle which has no relations to container ifecycle (refer volumes , image layers, containers)
+                
+                VOLUMES: 
+                once you delete pod volume also deleted
+                to store the data is called volue
+                volumes are three types
+                1) storage on cloud (ebs, azuredisk, efs , azure life & gcr)
+                2) empty directory
+                3) host path
+ ![image](./Images/13.png)
+ statefulset: each  pod have it's own volume is called k8s cluster . it's more predictable names
+ we can access individual pod by creating headless service 
+ HEADLESS SERVICE: service don't have ip address , it's runs name and name space
+ SYNTAX: <podname>.<service name>.<namespace>
+ name space: name space is used  to create verctual (isolated) space for every  pods 
+
+
+ ![image](./Images/14.png)
+                SHAD:  one process break into multiple functionality records is called shad.
+ 
+
+
+                persisted volume is a live where your volume is dead
+                CSI: controller storage volme(max. companies follws to storage)
+                SSD: standers storage disks will not concurrensive but nod is acts concurrences
+![image](./Images/16.png)
+
     2) undoroolout(roolback): when bugs occure in present version goto previous version
 storage: 
-    recreating: delete pod its replaced by default
+    recreating: delete pod its replaced by default it takes desired state (no. of pods) we increase pods it will start newer version .recreate don't have downtime . its not create one by one its create all pods at a time by using storage percentage.
+ANNOTATIONS: change-cause (is not a funtionality it's manage data)
+    change deployment >>> change annotatins
+        +
+        every time you get a new version 
+        +
+        don't chage image we change only tag
+
+DEAMONSET(ds): it's a  Controller which creates pod on every selected nodes in kubernetes cluster
+    1) log collector 
+    2) agents
+    node will be deleted pods also deleted
+
+NODE-SELECTOR: spec>> node name >> node selector( for this approch is not good approch, we always prefer label approch)
+>> we pods apply on nodes then we shedule depends on senarios 
+    a) node effinity
+    b) pod effinity
+
+SERVICE: 
+![image](./Images/15.png)
+
+
+
