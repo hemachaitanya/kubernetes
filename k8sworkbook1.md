@@ -68,3 +68,20 @@ create one service.yaml file and one  springpetcinic.yaml file
 
 ![image](./Images/8.png)
 
+
+3) Writing the Manifest File for Game of Life App.
+----------------------------------------------------
+ * create one instance (t2.large)
+ * build one image game of life (Docker file)
+ * run container with that image
+ * docker login
+ * docker push <image>
+ * create another instance and install both instances kubernetes
+ * write manifest file for docker image 
+ ![images](./Images/17.png)
+ ![images](./Images/18.png)
+ ![images](./Images/19.png)
+  * write  manifest file for create pod  runs with gameof life application
+
+  
+
