@@ -84,4 +84,112 @@ create one service.yaml file and one  springpetcinic.yaml file
   * write  manifest file for create pod  runs with gameof life application
 
   
+![images](./Images/20.png)
+
+![hema](./Images/21.png)
+
+
+
+ * 4) Creating the Jobs and CronJobs
+
+ ---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cronjob
+spec:
+  schedule: '* * * * *'
+  jobTemplate:
+    metadata:
+      name: job
+    spec: 
+      activeDeadlineSeconds: 3
+      template:
+        metadata:
+          name: pod
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: application
+              image: alpine
+              command:
+                - sleep
+                - 10s
+
+ ![image](./Images/22.png)
+![ima](./Images/23.png)
+
+
+ ---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: cronsheduller
+spec:
+  template:
+    metadata:
+      name: sheduller
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: alpine
+          image: alpine
+          command:
+            - sleep
+            - 10s
+![image](./Images/24.png)
+
+ * 5) Creating the ReplicaSet
+
+ ---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: setpods
+spec:
+  minReadySeconds: 3
+  replicas: 5
+  selector: 
+    matchLabels: 
+      app: jenkins-nginx
+  template:
+    metadata:
+      name: jenkins-nginx
+      labels:
+        app: jenkins-nginx
+    spec:
+      containers: 
+        - name: httpd
+          image: httpd
+          ports:
+            - containerPort: 80
+              hostPort: 80
+              protocol: "TCP"
+        - name: jenkins
+          image: jenkins/jenkins:jdk11
+          ports:
+            - containerPort: 8080
+              hostPort: 8080
+              protocol: "TCP"
+        - name: alpine
+          image: alpine
+          args:
+            - sleep
+            - 20s
+
+
+![image](./Images/25.png)
+
+* 6) Writing the LABELS and Selecting the LABELS using selector concept
+
+
+![image](./Images/25.png)
+
+
+
+
+
+
+
+
 

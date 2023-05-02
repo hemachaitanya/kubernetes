@@ -12,6 +12,7 @@ spec:
     metadata:
       name: sheduller
     spec:
+      restartPolicy: OnFailure
       containers:
         - name: alpine
           image: alpine
@@ -30,11 +31,12 @@ spec:
     metadata:
       name: job
     spec: 
-      activeDeadlineSeconds: 3s
+      activeDeadlineSeconds: 3
       template:
         metadata:
           name: pod
         spec:
+          restartPolicy: OnFailure
           containers:
             - name: application
               image: alpine
