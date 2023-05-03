@@ -258,6 +258,10 @@ NODE-SELECTOR: spec>> node name >> node selector( for this approch is not good a
 
 SERVICE: 
 ![image](./Images/15.png)
+![image](./Images/26.png)
+![ss](./Images/27.png)
+
+
 
 
 
