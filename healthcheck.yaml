@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: set
+  labels:
+    app: spc
+spec:
+  minReadySeconds: 2
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spc
+  template:
+    metadata:
+      name: pod
+      labels:
+        app: spc
+    spec:
+      activeDeadlineSeconds: 2
+      containers:
+        - name: spc
+          image: hema789/hello:spc-1.0
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 2
+            exec:
+              command:
+                - sleep 
+                - 10s
+          ports:
+            - containerPort: 8080
+              hostPort: 8080
+              protocol: TCP
+          
