@@ -163,21 +163,29 @@ source ~/.bash_profile
 * we can't port forward the application inside the container. (kubectl port-forword --address "0.0.0.0"<pod name>8080:80)
   kubectl not recommended because it's does not a client approch . it's only in my local laptop its application works,
   thats way we cannot recomended this application
+
 * pod is a smallest component in the k8s . so it's a workload not a controller
+
 * job is a controller because it controles another k8s job
+
 * cronjob is a contoller becacuse it controlles another k8s job
+
 *  HEALTH CHECKS/PROBES:  
  1: LIVENESS PROBE:   this checks fails k8s restart the container
  2: READINESS PROBE: when rediness probe is passed to service  the forword request passsed to pod , it fails the pod will be removed from pods
  3: STARTUP PROBES: every thing in your application is starts
 * (probes) or checks can be performed on applications are running or not inside the container we check by using probes.
+
 EXEC: when my application is not good how to restart the container(run any linux/windows command which returns status exit code)
   http: 1 -information 
         2- success
         3- restart
         4- somthing which not present
   GRPC: grpc is also one of the  communication mechanisom
+
+
   ---------------------
+
 PODS WIth SPECIFIC reSOURCES: (cpu/memory)
  resources are two types  
 1) requests: manimum memory utilization(ex: memory:64Mi , cpu: 250m)
@@ -221,8 +229,10 @@ SCALLING: scallings are three types
  ![image](./Images/13.png)
  statefulset: each  pod have it's own volume is called k8s cluster . it's more predictable names
  we can access individual pod by creating headless service 
+
  HEADLESS SERVICE: service don't have ip address , it's runs name and name space
  SYNTAX: <podname>.<service name>.<namespace>
+ 
  name space: name space is used  to create verctual (isolated) space for every  pods 
 
 
@@ -237,14 +247,17 @@ SCALLING: scallings are three types
 ![image](./Images/16.png)
 
     2) undoroolout(roolback): when bugs occure in present version goto previous version
+
 storage: 
     recreating: delete pod its replaced by default it takes desired state (no. of pods) we increase pods it will start newer version .recreate don't have downtime . its not create one by one its create all pods at a time by using storage percentage.
+
 ANNOTATIONS: change-cause (is not a funtionality it's manage data)
     change deployment >>> change annotatins
         +
         every time you get a new version 
         +
         don't chage image we change only tag
+
 
 DEAMONSET(ds): it's a  Controller which creates pod on every selected nodes in kubernetes cluster
     1) log collector 
