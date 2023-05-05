@@ -20,11 +20,11 @@ spec:
     spec:
       containers:
         - name: nopCommerce
-          image:
+          image: hema789/hello:nop-2.0
           ports:
             - containerPort: 5000
               protocol: TCP
-              
+
 
 
 
