@@ -1,17 +1,31 @@
 ---
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata: 
-  name: mysqlreplica
+  name: replicanop
+  labels:
+    name: web
 spec:
   minReadySeconds: 3
-  selector: 
+  progressDeadlineSeconds: 10
+  replicas: 1
+  selector:
     matchLabels:
-      app: mysqldb
+      name: web
   template:
-    metadata:
+    metadata: 
+      name: noppod
       labels:
-        app: mysqldb
-      name: replicaofmysql
-    spec: 
+        app: web
+    spec:
+      containers:
+        - name: nopCommerce
+          image:
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+              
+
+
+
 
