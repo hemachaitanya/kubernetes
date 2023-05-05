@@ -1,0 +1,17 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: mysqlreplica
+spec:
+  minReadySeconds: 3
+  selector: 
+    matchLabels:
+      app: mysqldb
+  template:
+    metadata:
+      labels:
+        app: mysqldb
+      name: replicaofmysql
+    spec: 
+

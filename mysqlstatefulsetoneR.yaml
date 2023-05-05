@@ -1,0 +1,56 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysqldb
+  labels: 
+    app: mysql
+spec: 
+  minReadySeconds: 3
+  podManagementPolicy: OrderedReady
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: mysql
+  serviceName: mySQL
+  template: 
+    metadata: 
+      name: pod
+      labels:
+        app: mySQL
+    spec:
+      containers:
+        - name: mySQL
+          image: mysql
+          env: 
+            - name: MYSQL_ROOT_PASSWORD
+              value: rootroot
+            - name: MYSQL_DATABASE
+              value: mysqldb
+            - name: MYSQL_USER
+              value: hema
+            - name: MYSQL_PASSWORD
+              value: rootroot
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 2
+          readinessProbe:
+            failureThreshold: 2
+            periodSeconds: 3
+            initialDelaySeconds: 2
+            timeoutSeconds: 1
+            successThreshold: 2
+            exec:
+              command:
+                - sleep 
+                - 30s
+            volumeDevices: 
+              - name:
+                devicePath:
+            ports:
+              - containerPort: 3306
+                protocol: TCP
+                name: mysql-svc
+              
+
+
