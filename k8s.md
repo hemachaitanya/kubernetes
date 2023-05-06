@@ -7,33 +7,48 @@ KUBERNETES: it have 8 charectores  between k and s
 * Need of k8s
     * High availability: some applications will go down k8s try to restart the containers 
     * Autoscalling: containers don’t scale on there own
+
  	    Horizontal: increase the no. of containers
 
 	    Vertical: increase the size of container
-        
+
     * Zero down time deployment:
         roolout:new version
         roolback:old version
         we have any bugs in new version we went to choose old version(for example we take ubuntu 20.04 sor the installation of azuredevops agent)
+
 * DISTRIBUTED SYSTEM: multiple machines can work (master node , node )
+
 * CLUSTER: combination of multiple machines but it speaks or looks like one machine(that is master server)
+
 * STATE: storage
+
 * STATEFULL: store your application in your local s/m
+
 * STATELESS:it can be stored in external (storing in db)
+
 * MONOLITH: running hole application in one server
+
 * MICRO SERVICES: we splite the huge application into simple steps
+
 * DESIRED STATE:
     1) declarative: docker file (or)docker-compose.yaml 
     2) imperative:using command lines (it is not a correct approach)
+
 * In kubernetes we don't have pets mind set(means cannot connect emotionally for special treatment of healthcheck) . we have cattle mindset (means one of the cow will be sick its replaced by other one )
+
 * kubernetes is not only desired  for docker 
+
 * MASTERNODE:
     1)kubeAPI: all the communications (internal/external)in k8s will done by kubeAPI  server . It exposes funtionally over HTTP(S)protocol& provide REST API
         kube api can understand only json & http languages , manifest yaml files understand by kubeapi we use "kubeconfig"
+
     2) Etcd: it has own life ; any thing stored in k8s cluster we need etcd. all k8s stored in etcd(defalut & non-default): cluster crash ayipotea backup cheayalsina componet etcd.
+
     3) SHEDULER: in k8s we want to create  something new node(object) by using of scheduler.(its responsible for maintaining desired state)
      sheduler communicate with API  and API communicate with node 
      sheduler----API---node
+     
      4)CONTROLLER: controller manager is responsible for maintaining desired state.(changes jarigite contrller manageer check cheasi matramea controller daniki saripade size ni batti node ni choose cheastumdhi) 
         (this recognation loop that checks for desired state . to did assigned work to scheduler by controller)
 WORKER NODE: 
