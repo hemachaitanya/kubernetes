@@ -13,8 +13,11 @@ KUBERNETES: it have 8 charectores  between k and s
 	    Vertical: increase the size of container
 
     * Zero down time deployment:
+    
         roolout:new version
+
         roolback:old version
+
         we have any bugs in new version we went to choose old version(for example we take ubuntu 20.04 sor the installation of azuredevops agent)
 
 * DISTRIBUTED SYSTEM: multiple machines can work (master node , node )
@@ -33,6 +36,7 @@ KUBERNETES: it have 8 charectores  between k and s
 
 * DESIRED STATE:
     1) declarative: docker file (or)docker-compose.yaml 
+
     2) imperative:using command lines (it is not a correct approach)
 
 * In kubernetes we don't have pets mind set(means cannot connect emotionally for special treatment of healthcheck) . we have cattle mindset (means one of the cow will be sick its replaced by other one )
@@ -48,7 +52,7 @@ KUBERNETES: it have 8 charectores  between k and s
     3) SHEDULER: in k8s we want to create  something new node(object) by using of scheduler.(its responsible for maintaining desired state)
      sheduler communicate with API  and API communicate with node 
      sheduler----API---node
-     
+
      4)CONTROLLER: controller manager is responsible for maintaining desired state.(changes jarigite contrller manageer check cheasi matramea controller daniki saripade size ni batti node ni choose cheastumdhi) 
         (this recognation loop that checks for desired state . to did assigned work to scheduler by controller)
 WORKER NODE: 
