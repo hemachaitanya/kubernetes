@@ -1,3 +1,15 @@
+* (1) Create a MySQL pod with Stateful Set with 1 replica
+
+        first we create persisted volume
+![image](./Images/29.png)
+
+    these persisted volume attached mysql database by using name tag
+    
+
+
+
+ * (2) Create a nopCommerce deployment with 1 replica
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -25,7 +37,5 @@ spec:
             - containerPort: 5000
               protocol: TCP
 
-
-
-
+![image](./Images/28.png) 
 

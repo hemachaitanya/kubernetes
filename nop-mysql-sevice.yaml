@@ -15,7 +15,51 @@ spec:
       protocol: TCP
   selector: 
     app: mysql
+  type: LoadBalancer 
+
+
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nopcommerce-mysql
+  labels:
+    app: nopcommerce
+spec:
+  selector:
+    app: nopcommerce
+    tier: app
+  ports:
+    - port: 80
   type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nopcommerce
+spec:
+  selector:
+    matchLabels:
+      app: nopcommerce
+      tier: app
+  template:
+    metadata:
+      labels:
+        app: nopcommerce
+        tier: app
+    spec:
+      containers:
+        - name: nopcommerce
+          image: hema789/hello:nop-2.0
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
+              name: web
 
     
     

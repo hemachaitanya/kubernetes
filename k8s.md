@@ -8,7 +8,9 @@ KUBERNETES: it have 8 charectores  between k and s
     * High availability: some applications will go down k8s try to restart the containers 
     * Autoscalling: containers don’t scale on there own
  	    Horizontal: increase the no. of containers
+
 	    Vertical: increase the size of container
+        
     * Zero down time deployment:
         roolout:new version
         roolback:old version

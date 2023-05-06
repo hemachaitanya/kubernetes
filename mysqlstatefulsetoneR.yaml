@@ -44,14 +44,14 @@ spec:
               command:
                 - sleep 
                 - 30s
-            volumeDevices: 
-              - name:
-                devicePath:
             ports:
               - containerPort: 3306
-                protocol: TCP
-                name: mysql-svc #we must write service file name here
-                
+                protocol: TCP 
+            volumeMounts:
+              - name: persistedvolume
+                mountPath: /var/lib/mysql 
+
+
               
 
 
