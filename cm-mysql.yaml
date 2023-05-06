@@ -1,0 +1,30 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-cm
+data:
+  MYSQL_ROOT_PASSWORD: root
+  MYSQL_DATABASE: mysqldb
+  MYSQL_USER: mysql
+
+
+
+---
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: mysql-cm
+spec:
+  containers:
+    - name: mysql
+      image: mysql:8
+      envFrom: 
+         configMapKeyRef:
+          name: mysql-cm
+          optional: false
+      ports:
+        containerPort: 3306
+        name: mysql-cm
+        protocol: TCP
+
