@@ -13,7 +13,7 @@ KUBERNETES: it have 8 charectores  between k and s
 	    Vertical: increase the size of container
 
     * Zero down time deployment:
-    
+
         roolout:new version
 
         roolback:old version
@@ -57,23 +57,37 @@ KUBERNETES: it have 8 charectores  between k and s
         (this recognation loop that checks for desired state . to did assigned work to scheduler by controller)
 WORKER NODE: 
     1) kubelet: control plan is assigned any work that work will be done by kubelet(agent)(to pass information from worker node to master node)
+
     2) conntainer runtime: container technology to be used in k8s cluster(Docker , docker support, ....)
+
     3) kube-proxy: this component is responsible for networking for containers on the node.
+
     container network interface pluggins:(ex: planner, calico, wave unit)
    
     CLOUD CONTROLE MANAGEMENT
+
 * EKS:elastic kubernetes service
+
 * AKS:azure kubernetes service
+
 * GKE: google kubernetes engine
 
 * CONTROL PLAN: example:how do you run 4 components is our choise
+
 * MASTER: example:all of 4 components are placed in master plan
+
 * KUBELET: its sends status will be send to after finishing work of kubectl what ever work assigned by controlplane
+
 * CONTAINER RUNTIME: container technology to be used in k8s cluster
+
 * KUBE_PROXY: this component is responsible for networking of containers on the node
+
 * KUBE CTL CONFIG: which contains api-server information, kubectl allows to communication with cluster to create resources.
+
 * for high availability cluster we choose only odd no. of services
+
 * kubeadm: the command to bootstrap the cluster.
+
 
 kubelet: the component that runs on all of the machines in your cluster and does things like starting pods and containers.
 
@@ -82,13 +96,17 @@ kubectl: the command line util to talk to your cluster.
 
 
 * k8s object: every thing in k8s is an object
+
 * CATALOG: list of all the requests(menu) 
-* PODS: k8s creates smallest unit is called pod
-    pod is automatic unit of creation of k8s
-    every pod have specific ip adress(not for container)
-    docker containers placed inside the pod
-    pods speaks creating base job
+
+* PODS: k8s creates smallest unit is called pod , 
+    pod is automatic unit of creation of k8s    ,   
+    every pod have specific ip adress(not for container)    , 
+    docker containers placed inside the pod ,
+    pods speaks creating base job   .
+
 * CRON JOB: sheduling base job
+
 * JOB:somthing runs in one time, a job does not deleted by itself , we have to delete it.
         vi job.yaml
         kubectl apply -f job.yaml
@@ -101,18 +119,27 @@ kubectl: the command line util to talk to your cluster.
 
 * PODS LIFE CYCLE:
     1)pending: "once your container connected to your pods it takes some time "
+
     2) running:
+
     3) succeed: " finished/complete the exeution"
+
     4)failed: "one container in the pod was terminated means stop"
+
     5) unknown:"error state(no communications between two containers)
 
 * CONTAINER STATES IN K8S PODS: 
+
     1) waiting:
     2) running:
     3) terminated
+
 * CONTAINER RESTART POLICY:
+
     restartpolicy:onfailure(error code never restarted only success code is restarted we take two different codes)
+
     restartpolicy:never(after complte the state k8s cannot try to restart the container )
+
     restartpolicy:always(default)(container always restarts when desired state will be compleated)
 
 
@@ -182,7 +209,9 @@ source ~/.bash_profile
 * now if we want to access the application in container we can doport - forword (not in the container)
     kubectl port-forword <application name> 
 * we can't port forward the application inside the container. (kubectl port-forword --address "0.0.0.0"<pod name>8080:80)
-  kubectl not recommended because it's does not a client approch . it's only in my local laptop its application works,
+
+  kubectl not recommended because it's does not a client approch . it's only in my local laptop its application works,      
+
   thats way we cannot recomended this application
 
 * pod is a smallest component in the k8s . so it's a workload not a controller
@@ -210,6 +239,7 @@ EXEC: when my application is not good how to restart the container(run any linux
 PODS WIth SPECIFIC reSOURCES: (cpu/memory)
  resources are two types  
 1) requests: manimum memory utilization(ex: memory:64Mi , cpu: 250m)
+
 2) limits:maximum memory utilizatin ( ex: memory: 256Mi ,  cpu: 1000m)
 
 container: containers are threetypes 
@@ -218,6 +248,7 @@ container: containers are threetypes
 
 2) init container: init containers are containers job cannot run continuously , if one container will be down then init container works
 till actual containers will up then init  containers will stop work.
+
 ----
 ![image](./Images/10.png)
 
@@ -234,6 +265,7 @@ SCALLING: scallings are three types
  ![image](./Images/12.png) 
 
  deployment: deployment depends on two objects
+
     1) roolout: goto latest version(kubectl roolout --help)
         a) deployment
         b) deamon sets
@@ -258,13 +290,17 @@ SCALLING: scallings are three types
 
 
  ![image](./Images/14.png)
+
                 SHAD:  one process break into multiple functionality records is called shad.
  
 
 
                 persisted volume is a live where your volume is dead
+
                 CSI: controller storage volme(max. companies follws to storage)
+
                 SSD: standers storage disks will not concurrensive but nod is acts concurrences
+
 ![image](./Images/16.png)
 
     2) undoroolout(roolback): when bugs occure in present version goto previous version
@@ -281,6 +317,7 @@ ANNOTATIONS: change-cause (is not a funtionality it's manage data)
 
 
 DEAMONSET(ds): it's a  Controller which creates pod on every selected nodes in kubernetes cluster
+
     1) log collector 
     2) agents
     node will be deleted pods also deleted
@@ -294,6 +331,10 @@ SERVICE:
 ![image](./Images/15.png)
 ![image](./Images/26.png)
 ![ss](./Images/27.png)
+
+* port: which port you want to give the application to run
+
+* target port : which port deafault added to the application runs
 
 
 
