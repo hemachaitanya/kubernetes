@@ -336,6 +336,50 @@ SERVICE:
 
 * target port : which port deafault added to the application runs
 
+* k8s resources will be of 2 categories by scope 
+    cluster resource
+    name space resource
+
+    ### Creating namespace: kubctl create ns <name>
+
+* we configure pods  are 2 types 
+        1) we use envronment
+        2) inside a container command & args
+
+        There are four different ways that you can use a ConfigMap to configure a container inside a Pod:
+Inside a container command and args
+
+Environment variables for a container
+
+Add a file in read-only volume, for the application to read
+
+Write code to run inside the Pod that uses the Kubernetes API to read a ConfigMap
+
+
+* ### environment variables(envfrom) cannot be changed once we create the pod.
+    env.variable we have to update the pods  only before we create the pods , after creation of pods some changes in the pod env.var they cannot be updated.
+
+* this   config map is not a secret approch so we use base64 
+ ### echo '<name>'  | base64
+ * container - env - secret ref(we place data in secret approch its better than config)
+
+ ### k8slens:
+ monitoring open source tool
+
+ ### valut:
+ encript the data 
+
+ ### RBAC:
+  RBAC are two types they are 
+    (1) authentication
+        * role (spoke with )
+        * cluster role
+    (2) autherization
+
+
+    
+    
+
 
 
 

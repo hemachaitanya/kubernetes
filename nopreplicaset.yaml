@@ -26,6 +26,9 @@ spec:
               protocol: TCP
 
 
+FROM alpine
+LABEL author='hema'
+CMD ["sleep","1d"]
 
 
 
