@@ -370,11 +370,33 @@ Write code to run inside the Pod that uses the Kubernetes API to read a ConfigMa
  encript the data 
 
  ### RBAC:
+ ![images](./Images/31.png)
   RBAC are two types they are 
-    (1) authentication
-        * role (spoke with )
-        * cluster role
-    (2) autherization
+    (1) authentication (for ex: to enter hall with movie ticket)
+        * role (spoke with namespace )
+            (role is nothing but policy , we apply our role into any user is called identity)
+            ## identity
+            identity are 4 types
+            (1)user (humans)
+            (2) group (humans)
+            (3)service(programming tools)
+            (4) account ( access to services user: & password:)
+
+        * cluster role ( applicable entair cluster)
+    (2) autherization( where your allow and where yor denied)
+
+### identity:
+![images](./Images/32.png)
+
+ idertity is a person or system who access is called identity
+
+ * role binding: role communicate with identity
+ * cluserrole binding: cluster role communicate with identity
+
+ ### OIDC:
+  open id connects (this oidc is supports fbusers, msusers , google users ...)
+
+
 
 
     
