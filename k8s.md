@@ -55,6 +55,8 @@ KUBERNETES: it have 8 charectores  between k and s
 
      4)CONTROLLER: controller manager is responsible for maintaining desired state.(changes jarigite contrller manageer check cheasi matramea controller daniki saripade size ni batti node ni choose cheastumdhi) 
         (this recognation loop that checks for desired state . to did assigned work to scheduler by controller)
+    5) cloud component management
+    
 WORKER NODE: 
     1) kubelet: control plan is assigned any work that work will be done by kubelet(agent)(to pass information from worker node to master node)
 
@@ -395,6 +397,7 @@ Write code to run inside the Pod that uses the Kubernetes API to read a ConfigMa
 
  ### OIDC:
   open id connects (this oidc is supports fbusers, msusers , google users ...)
+  
 
 
 
