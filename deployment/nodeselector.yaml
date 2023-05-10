@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: nodeselect
+  labels: nop
+spec:
+  nodeSelector: 
+    purpose: testing
+  containers:
+    - name: spc
+      image: hema789/hello:spc-1.0
+      ports:
+        - containerPort: 8080
+        
