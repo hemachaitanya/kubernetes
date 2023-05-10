@@ -24,6 +24,9 @@ spec:
           ports:
             - containerPort: 5000
               protocol: TCP
+          env: 
+            - name: MYSQL_SERVER
+              value: mysqldb
 
 
 FROM alpine
