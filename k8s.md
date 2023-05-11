@@ -204,7 +204,9 @@ source ~/.bash_profile
   in job we have pods
   in pods we have containers
 * controller basically maintaines to another k8s resources
+
 * BACKOFFLIMIT: job have back of limit to limit number of restarts and active dead line seconds to limit time period of execution.
+
 ![image](./Images/11.png)
 * we can delete the job (contrller)  then pods(child objects) also deleted
 * pods dosnot maintain any state .
@@ -398,6 +400,10 @@ Write code to run inside the Pod that uses the Kubernetes API to read a ConfigMa
  ### OIDC:
   open id connects (this oidc is supports fbusers, msusers , google users ...)
   
+## formula
+      kubectl api-resources --namespaced=true
+
+### Creating namespace: kubctl create ns <name>
 
 
 
