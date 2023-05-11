@@ -24,6 +24,9 @@ spec:
         - configMapRef: 
             name: mysql-cm
             optional: false
+
+![images](./Images/33.png)
+
 ##Ensure usage of secret in MySQL and configmaps
 ---
 apiVersion: v1
@@ -51,6 +54,9 @@ spec:
         - configMapRef: 
             name: mysql-cms
             optional: false
+
+![imag](./Images/34.png)
+
 ##Create a nop commerce deployment with MySQL statefulset and nop deployment
 ---
 ---

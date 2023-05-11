@@ -27,3 +27,13 @@ kubectl  get po --selector "app in(nginx,web)" --show-labels
 
 kubectl get nodes --show-labels
 
+kubectl taint nodes <node-name> poc=true:NoSchedule
+
+kubectl taint nodes ip-10-0-1-119.us-east-2.compute.internal poc=true:NoSchedule
+
+for other nodes
+
+kubectl taint nodes ip-10-0-1-199.us-east-2.compute.internal poc=false:NoSchedule
+
+kubectl taint nodes ip-10-0-3-230.us-east-2.compute.internal poc=false:NoSchedule
+
