@@ -405,10 +405,70 @@ Write code to run inside the Pod that uses the Kubernetes API to read a ConfigMa
 
 ### Creating namespace: kubctl create ns <name>
 
+### K8s has many installation options
 
+single node k8s cluster
 
+k3c
+kind
+minikube
 
-    
+Multi node k8s cluster
+
+manual installations:
+kube-adm : single master k8s cluster we use kube adm
+kube-spray :
+kops :
+
+* kind is type of object
+
+* metadata describes some additional information about object you are       trying to create (name, labels)
+
+* spec: This is the desired state
+
+* To get all the api-resources in your k8s cluster
+
+###  What is CNI ?
+     
+     CNI – Container Network Interface
+
+    Docker containers for networking have a Standard CNM (Container Network Model)
+
+    CNI (Container Network Interface) is another standard which also speaks about networking to container runtime.
+
+    CNI Plugins implement networking functionalities. In the case of k8s Networking is implemented by CNI and we have an option to choose the CNI Plugin in bare metal installations.
+
+    CNI Plugins help kube-proxy to give a unique ip address to every Pod in the k8s cluster.
+
+    * Some of the popular CNI Plugins
+        Weave Net
+        Flannel
+        Calico
+        Self Hosted K8s
+![hema](./Images/35.png)
+
+    K8s installations will not have default CNI. So post installtion of k8s cluster we need to install any CNI implementation which works for us
+
+    kubelet on the node creates the container inside the Pod by using container runtime (Docker/CRI-o).
+
+    Each Pod requires a network connection which is provided by kube-proxy which requires CNI to assist.
+
+![oo](./Images/36.png)
+
+### ### What is default dns in k8s?
+
+    Kubernetes offers a DNS cluster addon, which most of the supported environments enable by default. In Kubernetes version 1.11 and later, CoreDNS is recommended and is installed by default with kubeadm.
+
+    K8s can expose the service to the external world
+
+    nodePort:
+     Expose the service to the particular port on all the nodes of k8s cluster
+
+    loadBalancer:
+     Exposes the service to the loadbalancer
+     
+    external:
+     Creates a DNS record which can be added to DNS servers maintaine by your org.
     
 
 

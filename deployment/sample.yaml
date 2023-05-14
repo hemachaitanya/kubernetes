@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginxapp
+spec:
+  minReadySeconds: 3
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  strategy:
+    rollingUpdate:
+      maxSurge: 30%
+      maxUnavailable: 40%
+  template:
+    metadata:
+      labels: 
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: 568229488190.dkr.ecr.us-east-1.amazonaws.com/hemachaitanya:latest
+          ports:
+            - name: nginx
+              containerPort: 80
+              protocol: TCP
+      imagePullSecrets:
+        - name: regcred        
